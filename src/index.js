@@ -1,14 +1,5 @@
-import React from "react";
 import ReactDOM from "react-dom";
+import App from "./App";
 
 const root = document.getElementById("root");
-
-function App() {
-  return (
-    <div id="app" className="container">
-      Hello
-    </div>
-  );
-}
-
 ReactDOM.render(<App />, root);
