@@ -1,3 +1,4 @@
+import Product from "../Product/Product";
 import "./ProductList.css";
 
 const products = [
@@ -21,9 +22,9 @@ const products = [
 
 const ProductList = () => {
   return (
-    <div>
+    <div className="product-list">
       {products.map((item) => {
-        return <p key={item.id}>{item.title}</p>;
+        return <Product title={item.title} key={item.id} />;
       })}
     </div>
   );
