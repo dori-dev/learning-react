@@ -8,9 +8,12 @@ const App = () => {
     { id: 3, title: "TShirt" },
     { id: 4, title: "Computer" },
   ]);
+  const deleteProduct = (id) => {
+    setProduct(products.filter((item) => item.id !== id));
+  };
   return (
     <div id="app" className="container">
-      <ProductList products={products} />
+      <ProductList products={products} onDelete={deleteProduct} />
     </div>
   );
 };
