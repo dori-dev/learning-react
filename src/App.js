@@ -1,22 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProductList from "./components/ProductList/ProductList";
 import AddProduct from "./components/AddProduct/AddProduct";
 
 const App = () => {
-  const [products, setProducts] = useState([
-    { id: 1, title: "Book" },
-    { id: 2, title: "Laptop" },
-    { id: 3, title: "TShirt" },
-    { id: 4, title: "Computer" },
-  ]);
-  const deleteProduct = (id) => {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const sendRequest = async () => {
+      let response = await fetch("http://localhost:8000/products");
+      let data = await response.json();
+      setProducts(data);
+    };
+    sendRequest();
+  }, []);
+  const deleteProduct = async (id) => {
+    await fetch(`http://localhost:8000/products/${id}`, {
+      method: "DELETE",
+    });
     setProducts(products.filter((item) => item.id !== id));
   };
-  const addProduct = (title) => {
-    let newProduct = {
-      id: Math.max(...products.map((product) => product.id)) + 1,
-      title: title,
-    };
+  const addProduct = async (title) => {
+    let response = await fetch("http://localhost:8000/products", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ title: title }),
+    });
+    let newProduct = await response.json();
     setProducts([...products, newProduct]);
   };
   return (

@@ -8,6 +8,7 @@ const AddProduct = ({ onAdd }) => {
     if (title) {
       onAdd(title);
       setTitle("");
+      event.target.title.focus()
     }
   };
   return (
@@ -16,7 +17,7 @@ const AddProduct = ({ onAdd }) => {
         <div className="form-control">
           <input
             type="text"
-            name="product-name"
+            name="title"
             placeholder="Product name..."
             value={title}
             onChange={(e) => setTitle(e.target.value)}
