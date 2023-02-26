@@ -1,26 +1,7 @@
 import Product from "../Product/Product";
 import "./ProductList.css";
 
-const products = [
-  {
-    id: 1,
-    title: "Book",
-  },
-  {
-    id: 2,
-    title: "Laptop",
-  },
-  {
-    id: 3,
-    title: "TShirt",
-  },
-  {
-    id: 4,
-    title: "Computer",
-  },
-];
-
-const ProductList = () => {
+const ProductList = ({ products }) => {
   return (
     <div className="product-list">
       {products.map((item) => {
