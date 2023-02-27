@@ -16,16 +16,22 @@ git clone https://github.com/dori-dev/learning-react.git
 cd learning-react
 ```
 
-## Run FrontEnd
+## Install packages
 
 ```
-npm run start
+npm install
 ```
 
 ## Run Backend
 
 ```
 npm run server
+```
+
+## Run FrontEnd
+
+```
+npm run start
 ```
 
 ## Open On Browser
