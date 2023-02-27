@@ -16,7 +16,7 @@ git clone https://github.com/dori-dev/learning-react.git
 cd learning-react
 ```
 
-## Install packages
+## Install Packages
 
 ```
 npm install
